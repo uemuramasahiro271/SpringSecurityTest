@@ -42,6 +42,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 			.anyRequest().authenticated();
+
+		http.logout()
+			.logoutSuccessUrl("/logout")
+			.permitAll();
 	}
 
 //    @Autowired

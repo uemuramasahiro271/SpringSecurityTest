@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="include.jsp"%>
+<%@ include file="../include.jsp"%>
 
 <div>
 	<h3>ログインフォーム</h3>
@@ -25,6 +25,9 @@
 			<tr>
 				<td>&nbsp;</td>
 				<td><button>ログイン</button></td>
+			</tr>
+			<tr>
+				<td><a href="<c:url value='/accountRegister' />">新規登録</a></td>
 			</tr>
 		</table>
 

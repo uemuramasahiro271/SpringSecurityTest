@@ -8,7 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import lombok.Data;
+
 @Entity
+@Data
 @Table(name = "springtest.account")
 public class Account implements Serializable{
 
@@ -21,29 +24,5 @@ public class Account implements Serializable{
 
 	@Transient
 	private boolean isEnabled = true;
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public boolean getIsEnabled() {
-		return isEnabled;
-	}
-
-	public void setIsEnabled(boolean isEnabled) {
-		this.isEnabled = isEnabled;
-	}
 
 }

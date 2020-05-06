@@ -12,20 +12,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import example.app.entity.Account;
-import example.app.repository.AccountRepository;
 import example.app.security.AccountUserDetails;
 
 @Service
 public class AccountUserDetailsService implements UserDetailsService{
 
 	@Autowired
-	private AccountRepository accountRepository;
+	private AccountServiceImpl accountService;
 
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
 
-		Account account = accountRepository.findOne(username);
+		Account account = accountService.getAccount(username);
 		if(account == null) {
 			throw new UsernameNotFoundException("user not found");
 		}

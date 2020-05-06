@@ -1,15 +1,19 @@
 package example.app.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AuthenticationController {
 
-	@RequestMapping(path="/login", method=RequestMethod.GET)
+	@GetMapping(path="/login")
 	public String viewLoginForm() {
-		return "loginForm";
+		return "auth/loginForm";
+	}
+
+	@GetMapping("/logout")
+	public String viewLogoutForm() {
+		return "auth/logoutForm";
 	}
 
 }
