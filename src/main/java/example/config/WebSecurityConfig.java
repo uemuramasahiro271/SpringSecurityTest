@@ -19,8 +19,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	void configureAuthenticationManager(AuthenticationManagerBuilder auth) throws Exception {
 
-		auth.userDetailsService(userDetailsService);
-		//.passwordEncoder(passwordEncoder());
+		auth.userDetailsService(userDetailsService)
+			.passwordEncoder(passwordEncoder());
 	}
 
     @Bean
@@ -41,6 +41,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.permitAll();
 
 		http.authorizeRequests()
+	        .antMatchers("/accountRegister").permitAll()
+	        .antMatchers("/register").permitAll()
+	        .antMatchers("/result").permitAll()
 			.anyRequest().authenticated();
 
 		http.logout()
